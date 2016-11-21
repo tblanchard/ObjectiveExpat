@@ -1,0 +1,37 @@
+                        ObjectiveExpat, Release 1.95.8
+
+This is ObjectiveExpat - formerly known as simply Expat for ObjectiveC.
+It is an ObjectiveC wrapper for Expat, a C library for parsing XML, 
+written by James Clark.
+
+Expat is a stream-oriented XML parser.  This means that you register
+handlers with the parser before starting the parse.  These handlers
+are called when the parser discovers the associated structures in the
+document being parsed.  A start tag is an example of the kind of
+structures for which you may register handlers.
+
+ObjectiveExpat contains an abstract class TBXmlParser which wraps the 
+Expat parser and installs all of the callbacks for you.  The callbacks
+then invoke messages on the TBXmlParser.  The implementation of the 
+methods is empty.  Subclass and override the methods to perform custom
+handling and implement concrete parsers.
+
+A subclass of TBXmlParser called TBXmlPListParser is provided as an 
+example of a concrete XmlParser implementation.  It uses PList objects
+(NSDictionary, NSArray, NSString) as the Document Object Model (DOM).
+This is pretty much the only parser object I have ever needed but you
+are free do develop your own.
+
+Expat and ObjectiveExpat is free software.  You may copy, distribute, 
+and modify it under the terms of the License contained in the file COPYING 
+distributed with this package.  This license is the same as the MIT/X 
+Consortium license.  If you use this package, I would appreciate an email and 
+a mention in the developer credits along the lines of "Xml Parser interface
+by Todd Blanchard" as this sort of thing makes it easier for me to find work
+and without work there is no free software.  :-)
+
+Versions of Expat that have an odd minor version (the middle number in
+the release above), are development releases and should be considered
+as beta software.  Releases with even minor version numbers are
+intended to be production grade software.
+
